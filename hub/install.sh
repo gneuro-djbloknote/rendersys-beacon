@@ -25,7 +25,7 @@
 #
 set -euo pipefail
 
-DOMAIN="${RENDERSYS_DOMAIN:-render.djbloknote.ru}"
+DOMAIN="${RENDERSYS_DOMAIN:-render.dobrolog.app}"
 EMAIL="${RENDERSYS_EMAIL:-}"                # for Let's Encrypt expiry notices
 TUNNEL_PATH="${RENDERSYS_PATH:-}"   # generated with real entropy if unset
 RELAY_PORT="${RENDERSYS_RELAY_PORT:-8022}"      # loopback only
@@ -69,7 +69,7 @@ if [ "${1:-}" = "--uninstall" ]; then
     fi
   fi
   if [ -n "${RENDERSYS_DOMAIN:-}" ] || [ -f /opt/rendersys-hub/tunnel_path ]; then
-    D="${RENDERSYS_DOMAIN:-render.djbloknote.ru}"
+    D="${RENDERSYS_DOMAIN:-render.dobrolog.app}"
     # Otherwise certbot retries a domain with no webroot twice a day forever.
     certbot delete --cert-name "$D" --non-interactive >/dev/null 2>&1 || true
   fi
